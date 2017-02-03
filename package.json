@@ -1,0 +1,45 @@
+{
+  "name": "taskmanager",
+  "version": "1.0.0",
+  "description": "The Angular 2 educational project",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server",
+    "webpack": "webpack --progress",
+    "postinstall": "npm run webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lidiapogrebniak/taskmanager.git"
+  },
+  "author": "Lidia Pogrebniak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lidiapogrebniak/taskmanager/issues"
+  },
+  "homepage": "https://github.com/lidiapogrebniak/taskmanager#readme",
+  "dependencies": {
+    "@angular/common": "2.4.5",
+    "@angular/compiler": "2.4.5",
+    "@angular/core": "2.4.5",
+    "@angular/forms": "2.4.5",
+    "@angular/http": "2.4.5",
+    "@angular/platform-browser": "2.4.5",
+    "@angular/platform-browser-dynamic": "2.4.5",
+    "@angular/router": "3.4.5",
+    "core-js": "2.4.1",
+    "rxjs": "5.0.3",
+    "zone.js": "0.7.6"
+  },
+  "devDependencies": {
+    "babel-core": "6.22.1",
+    "babel-loader": "6.2.10",
+    "babel-preset-latest": "6.22.0",
+    "babel-preset-angular2": "0.0.2",
+    "concurrently": "3.1.0",
+    "html-loader": "0.4.4",
+    "lite-server": "2.2.0",
+    "script-loader": "0.7.0",
+    "webpack": "2.2.1"
+  }
+}
