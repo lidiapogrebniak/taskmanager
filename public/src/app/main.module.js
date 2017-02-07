@@ -6,7 +6,8 @@ import { NgModule } from '@angular/core';
 
 import {
   AppComponent,
-  ProjectListComponent
+  ProjectListComponent,
+  LoginComponent
 } from './components';
 
 import { routes } from './routes';
@@ -15,7 +16,8 @@ import { routes } from './routes';
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

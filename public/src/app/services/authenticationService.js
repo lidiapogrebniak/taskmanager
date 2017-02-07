@@ -1,48 +1,51 @@
-import { Injectsable } from '@angular/core';
-import {Router} from 'angular2/router';
+import { Injectable } from '@angular/core';
 
 export class User {
   constructor(
    email, 
-   password
+   password,
+   name
   ) { 
      this.email = email;
      this.password = password;
+     this.name = name;
    }
 }
 
 let users = [
-  new User('admin@admin.com','111'),
-  new User('user1@gmail.com','111')
+  new User('admin@admin.com','111', 'Admin'),
+  new User('user1@gmail.com','111', 'User')
 ];
 
 @Injectable()
 export class AuthenticationService {
-  const TOKEN_KEY ="auth_token";
-  constructor(
-     router: Router){
-    this.router = router;
+  constructor() {
+    this.loggedIn = !!localStorage.getItem('auth_token');
+    this.user = localStorage.getItem('auth_token');
   }
  
   logout() {
-    localStorage.removeItem(TOKEN_KEY);
-    this.router.navigate(['Login']);
+    localStorage.removeItem('auth_token');
+    this.loggedIn = false;
+    this.user = null;
   }
  
   login(user){
-    var authenticatedUser = users.find(u => u.email === user.email);
+    let authenticatedUser = users.find(u => u.email === user.email);
+
     if (authenticatedUser && authenticatedUser.password === user.password){
-      localStorage.setItem(TOKEN_KEY, authenticatedUser);
-      this.router.navigate(['Home']);      
-      return true;
+      localStorage.setItem('auth_token', authenticatedUser);
+      this.loggedIn = true;
+      this.user = authenticatedUser;
+      
     }
-    return false;
- 
+
+    return new Promise((resolve, reject) => {
+        resolve(this.loggedIn);
+      });
   }
  
    checkCredentials(){
-    if (localStorage.getItem(TOKEN_KEY) === null){
-        this.router.navigate(['Login']);
-    }
+      return this.loggedIn;
   } 
 }
