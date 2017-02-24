@@ -11,3 +11,6 @@ import '@angular/router';
 import '@angular/core';
 import '@angular/common';
 import '@angular/compiler';
+
+import 'bootstrap';
+import 'ng2-bootstrap';
